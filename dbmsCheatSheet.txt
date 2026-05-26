@@ -1,0 +1,73 @@
+# MySQL Important Commands Cheat Sheet
+
+## Database Operations
+- Show all databases:
+  SHOW DATABASES;
+- Create a database:
+  CREATE DATABASE dbname;
+- Use a database:
+  USE dbname;
+- Drop a database:
+  DROP DATABASE dbname;
+
+## Table Operations
+- Show all tables:
+  SHOW TABLES;
+- Create a table:
+  CREATE TABLE tablename (
+    column1 datatype,
+    column2 datatype,
+    ...
+  );
+
+## Data Manipulation
+- Insert data:
+  INSERT INTO tablename (col1, col2) VALUES (val1, val2);
+- Select data:
+  SELECT * FROM tablename;
+  SELECT col1, col2 FROM tablename WHERE condition;
+- Update data:
+  UPDATE tablename SET col1 = val1 WHERE condition;
+- Delete data:
+  DELETE FROM tablename WHERE condition;
+
+## Table Modification
+- Add a column:
+  ALTER TABLE tablename ADD column datatype;
+- Drop a column:
+  ALTER TABLE tablename DROP COLUMN column;
+- Modify a column:
+  ALTER TABLE tablename MODIFY COLUMN column datatype;
+
+- Describe table structure:
+  DESCRIBE tablename;
+- Drop a table:
+  DROP TABLE tablename;
+- Rename a table:
+  RENAME TABLE oldname TO newname;
+
+## Constraints
+- Add primary key:
+  ALTER TABLE tablename ADD PRIMARY KEY (column);
+- Add foreign key:
+  ALTER TABLE tablename ADD FOREIGN KEY (column) REFERENCES other_table(column);
+
+## User Management
+- Show users:
+  SELECT user, host FROM mysql.user;
+- Create user:
+  CREATE USER 'username'@'localhost' IDENTIFIED BY 'password';
+- Grant privileges:
+  GRANT ALL PRIVILEGES ON dbname.* TO 'username'@'localhost';
+- Revoke privileges:
+  REVOKE ALL PRIVILEGES ON dbname.* FROM 'username'@'localhost';
+- Drop user:
+  DROP USER 'username'@'localhost';
+
+## Other Useful Commands
+- Show current database:
+  SELECT DATABASE();
+- Show MySQL version:
+  SELECT VERSION();
+- Exit MySQL:
+  EXIT;
