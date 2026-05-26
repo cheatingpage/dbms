@@ -4,65 +4,66 @@
 - Show all databases:
   SHOW DATABASES;
 - Create a database:
-  CREATE DATABASE dbname;
+  CREATE DATABASE college;
 - Use a database:
-  USE dbname;
+  USE college;
 - Drop a database:
-  DROP DATABASE dbname;
+  DROP DATABASE college;
 
 ## Table Operations
 - Show all tables:
   SHOW TABLES;
 - Create a table:
-  CREATE TABLE tablename (
-    column1 datatype,
-    column2 datatype,
-    ...
+  CREATE TABLE students (
+    id INT PRIMARY KEY,
+    name VARCHAR(50),
+    age INT
   );
 
 ## Data Manipulation
 - Insert data:
-  INSERT INTO tablename (col1, col2) VALUES (val1, val2);
+  INSERT INTO students (id, name, age) VALUES (1, 'Amit', 20);
 - Select data:
-  SELECT * FROM tablename;
-  SELECT col1, col2 FROM tablename WHERE condition;
+  SELECT * FROM students;
+  SELECT name, age FROM students WHERE age > 18;
 - Update data:
-  UPDATE tablename SET col1 = val1 WHERE condition;
+  UPDATE students SET age = 21 WHERE id = 1;
 - Delete data:
-  DELETE FROM tablename WHERE condition;
+  DELETE FROM students WHERE id = 1;
+
 
 ## Table Modification
 - Add a column:
-  ALTER TABLE tablename ADD column datatype;
+  ALTER TABLE students ADD email VARCHAR(100);
 - Drop a column:
-  ALTER TABLE tablename DROP COLUMN column;
+  ALTER TABLE students DROP COLUMN email;
 - Modify a column:
-  ALTER TABLE tablename MODIFY COLUMN column datatype;
+  ALTER TABLE students MODIFY COLUMN name VARCHAR(100);
 
 - Describe table structure:
-  DESCRIBE tablename;
+  DESCRIBE students;
 - Drop a table:
-  DROP TABLE tablename;
+  DROP TABLE students;
 - Rename a table:
-  RENAME TABLE oldname TO newname;
+  RENAME TABLE students TO alumni;
 
 ## Constraints
 - Add primary key:
-  ALTER TABLE tablename ADD PRIMARY KEY (column);
+  ALTER TABLE students ADD PRIMARY KEY (id);
 - Add foreign key:
-  ALTER TABLE tablename ADD FOREIGN KEY (column) REFERENCES other_table(column);
+  ALTER TABLE registration ADD FOREIGN KEY (student_id) REFERENCES students(id);
 
 ## User Management
 - Show users:
   SELECT user, host FROM mysql.user;
 - Create user:
-  CREATE USER 'username'@'localhost' IDENTIFIED BY 'password';
+  CREATE USER 'himu'@'localhost' IDENTIFIED BY 'mypassword';
 - Grant privileges:
-  GRANT ALL PRIVILEGES ON dbname.* TO 'username'@'localhost';
+  GRANT ALL PRIVILEGES ON college.* TO 'himu'@'localhost';
 - Revoke privileges:
-  REVOKE ALL PRIVILEGES ON dbname.* FROM 'username'@'localhost';
+  REVOKE ALL PRIVILEGES ON college.* FROM 'himu'@'localhost';
 - Drop user:
-  DROP USER 'username'@'localhost';
+  DROP USER 'himu'@'localhost';
 
 ## Other Useful Commands
 - Show current database:
